@@ -50,6 +50,7 @@ app.get('/', (req, res) => {
     message: 'DevOps Challenge API',
     version: '1.0.1',
     author: 'jgomez',
+    email: 'jelvyc15@gmail.com',
     deployed_via: 'GitHub Actions CI/CD',
     endpoints: {
       health: '/health',
