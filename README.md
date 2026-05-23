@@ -1,11 +1,5 @@
 # DevOps Challenge - CI/CD + Docker + AWS
 
-**Status: Deployed & Running**
-
-- 🌐 **App**: http://devops-challenge-dev-alb-1100184419.eu-west-1.elb.amazonaws.com
-- 📦 **Repository**: https://github.com/jjgomez29/devops-challenge
-- 🚀 **CI/CD Pipeline**: https://github.com/jjgomez29/devops-challenge/actions
-
 Pipeline CI/CD automatizado con **GitHub Actions**, **Docker**, **ECR** y **AWS** (EC2, Auto Scaling, ALB).
 
 ## Arquitectura
@@ -119,22 +113,6 @@ El pipeline se ejecuta en cada push a `main`:
 - Security groups restrictivos
 - IMDS v2 en EC2
 
-## 🧪 Demostración - Prueba los Endpoints
-
-### Health Check
-```bash
-curl https://devops-challenge-dev-alb-1100184419.eu-west-1.elb.amazonaws.com/health
-```
-
-### Metrics
-```bash
-curl https://devops-challenge-dev-alb-1100184419.eu-west-1.elb.amazonaws.com/metrics
-```
-
-### API Info
-```bash
-curl https://devops-challenge-dev-alb-1100184419.eu-west-1.elb.amazonaws.com/
-```
 
 ## Autor
 
