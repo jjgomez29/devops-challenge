@@ -1,5 +1,11 @@
 # DevOps Challenge - CI/CD + Docker + AWS
 
+**Status: Deployed & Running**
+
+- 🌐 **App**: http://devops-challenge-dev-alb-1100184419.eu-west-1.elb.amazonaws.com
+- 📦 **Repository**: https://github.com/jjgomez29/devops-challenge
+- 🚀 **CI/CD Pipeline**: https://github.com/jjgomez29/devops-challenge/actions
+
 Pipeline CI/CD automatizado con **GitHub Actions**, **Docker**, **ECR** y **AWS** (EC2, Auto Scaling, ALB).
 
 ## Arquitectura
@@ -76,6 +82,9 @@ cp terraform.tfvars.example terraform.tfvars
 terraform init
 terraform plan
 terraform apply
+
+# Destruir infraestructura
+cd terraform && terraform destroy
 ```
 
 ### 4. Configurar GitHub Actions
@@ -101,33 +110,31 @@ El pipeline se ejecuta en cada push a `main`:
 2. **Push to ECR**: Sube la imagen a Amazon ECR
 3. **Deploy**: Inicia instance refresh en el Auto Scaling Group
 
-## Comandos Útiles
-
-```bash
-# Ver logs
-aws logs tail /aws/ec2/devops-challenge --follow
-
-# Ver instancias
-aws ec2 describe-instances \
-  --filters "Name=tag:Name,Values=*devops-challenge*" \
-  --query 'Reservations[*].Instances[*].[InstanceId,State.Name]'
-
-# Ver URL de la aplicación
-aws elbv2 describe-load-balancers \
-  --query "LoadBalancers[?contains(LoadBalancerName,'devops-challenge')].DNSName" \
-  --output text
-
-# Destruir infraestructura
-cd terraform && terraform destroy
-```
 
 ## Seguridad
 
 - Non-root user en Docker
 - Secrets en GitHub Actions (no hardcodeados)
-- IAM roles con permisos mínimos
+- IAM roles con privilegios mínimos
 - Security groups restrictivos
 - IMDS v2 en EC2
+
+## 🧪 Demostración - Prueba los Endpoints
+
+### Health Check
+```bash
+curl https://devops-challenge-dev-alb-1100184419.eu-west-1.elb.amazonaws.com/health
+```
+
+### Metrics
+```bash
+curl https://devops-challenge-dev-alb-1100184419.eu-west-1.elb.amazonaws.com/metrics
+```
+
+### API Info
+```bash
+curl https://devops-challenge-dev-alb-1100184419.eu-west-1.elb.amazonaws.com/
+```
 
 ## Autor
 
