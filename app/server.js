@@ -48,7 +48,9 @@ app.get('/metrics', (req, res) => {
 app.get('/', (req, res) => {
   res.status(200).json({
     message: 'DevOps Challenge API',
-    version: '1.0.0',
+    version: '1.0.1',
+    author: 'jgomez',
+    deployed_via: 'GitHub Actions CI/CD',
     endpoints: {
       health: '/health',
       metrics: '/metrics'
