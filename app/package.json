@@ -1,0 +1,35 @@
+{
+  "name": "devops-challenge",
+  "version": "1.0.0",
+  "description": "DevOps Challenge - CI/CD + Docker + AWS Auto Scaling",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "devops",
+    "docker",
+    "aws",
+    "terraform",
+    "ci-cd"
+  ],
+  "author": "jgomez",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3",
+    "eslint": "^8.56.0",
+    "prettier": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
